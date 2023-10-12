@@ -30,5 +30,15 @@ else if($_POST["operation"] == "add"){
     dump_data_to_database($books);
     header('Location: index.php');
 }
+    else if($_POST["operation"] == "search"){
+    $book["title"] = $_POST["title"];
+    $book["author"] = $_POST["author"];
+    $book["pages"] = $_POST["pages"];
+    $book["isbn"] = $_POST["isbn"];
+    $book["available"] = $_POST["available"] === "Available"?true:false;
+    array_push($books, $book);
+    dump_data_to_database($books);
+    header('Location: index.php');
+}
 
 ?>
