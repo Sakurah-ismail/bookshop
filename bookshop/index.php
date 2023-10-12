@@ -1,5 +1,5 @@
 <?php
-   
+    // include the function
     include_once './functions.php';
 ?>
 
@@ -13,13 +13,21 @@
     <title>BookShop</title>
 </head>
 <body >
-    <h1 class="center"> Book Shop</h1>
+    <h1 class="center">Book Shop</h1>
     <h3 class="center">Books Lists</h3>
     <?php
         
         $books = fetch_data_from_database();
 
     ?>
+    <form class="center" action="add_new.php" method="POST">
+      <input type="hidden" name="operation" value="add-request">
+        <button type="submit" >Add New Book</button>
+    </form>
+    <form class="center"  action="search.php" method="POST">
+      <input type="hidden" name="operation" value="add-request">
+        <button type="submit" >Search Book</button>
+    </form>
 <table>
         <thead>
             <th>Title</th>
@@ -61,7 +69,4 @@
 
         
     </table>
-    <form class="center" class="w-full flex" action="add_new.php" method="POST">
-      <input type="hidden" name="operation" value="add-request">
-        <button type="submit" >Add New Book</button>
-    </form>
+    
